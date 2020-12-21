@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="D:\internship programe\Java Script Tasks\Task 2\task 2.css">
+
+
+</head>
+<body>
+    <div id="main_div">
+    <button id="box_btn" onclick="movebox()">Boxes</button>
+    <button id="box_btn" onclick="GreenColor()">Green Color</button>
+    <button id="box_btn" onclick="OrangeColor()">Orange Color</button>
+    <button id="box_btn" onclick="Deletebox()">Delete Box</button>
+</div>
+     
+    <script>
+   
+        let alphabets = ["A", "B" , "C" , "D" , "E" , "F" , "G"];
+        let index = 0;
+    function movebox(){
+        let childdiv = document.createElement('div');
+        childdiv.className = "draggable";
+        main_div.appendChild(childdiv);
+              let value = alphabets[index];
+              childdiv.innerHTML = value;
+              index = index+1;
+    
+            
+        childdiv.onclick = () =>{
+          let border_remove =  document.querySelectorAll(".draggable");
+          for(let item of border_remove){
+
+              item.style.border ="";
+            item.classList.remove('select');
+            item.style.background = "";
+          }
+            childdiv.classList.add('select');
+            childdiv.style.border = " 5px solid black";
+        }
+    }
+    function GreenColor(){
+        let greenboxe = document.querySelector('.select');
+        greenboxe.style.background ="green"; 
+    }
+    function OrangeColor(){
+        let orangebox = document.querySelector('.select');
+        orangebox.style.background ="orange"; 
+    }
+    function Deletebox(){
+        let emptybox = document.querySelector('.select');
+        emptybox.style.display ="none"; 
+    }
+
+
+    </script>
+    
+    
+</body>
+</html
